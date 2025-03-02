@@ -24,11 +24,11 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
-    @pytest.mark.parametrize('book_name',['x', 'x'*40])
-    def test_add_new_book_len_from_0_to_40(self, book_name):
+    @pytest.mark.parametrize('book_name',['', 'x'*43])
+    def test_add_new_book_with_len_0_and_43_book_not_added(self, book_name):
         collector = BooksCollector()
         collector.add_new_book(book_name)
-        assert len(collector.get_books_genre()) == 1
+        assert len(collector.get_books_genre()) == 0
 
     def test_add_new_book_twice(self):
         collector = BooksCollector()
